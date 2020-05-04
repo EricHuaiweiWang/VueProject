@@ -7,11 +7,54 @@
     <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP" src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
 </head>
 <body>
-
-    <script>
-       var vm=new Vue({
-
-       }); 
-    </script>
+<div id="app">
+{{content}}
+</div>
+    
 </body>
+<script>
+    var vm=new Vue({
+    el:'#app',
+    data:{
+        content:'hello eric'
+    },
+    beforeCreate:function(){
+        console.log('beforeCreate');
+    },
+    created:function(){
+        console.log('Created');
+    },
+    /* attached:function(){
+        console.log('attached');
+    }, */
+    beforeDestroy:function(){
+        console.log('beforedestory');
+    },
+    destroyed:function(){
+        console.log('destroyed');
+    },
+    beforeMount:function(){
+        console.log('beforeMounted');
+    },
+    mounted:function(){
+        console.log('Mounted');
+    },
+    beforeUpdate:function(){
+        console.log('beforeUpdate');
+    },
+    updated:function(){
+        console.log('updated');
+    },
+    activated:function(){
+        console.log('activated');
+    },
+    deactivated:function(){
+        console.log('deactivated');
+    },
+    ready:function(){
+        console.log('ready');
+        $.$destroy();
+    }
+    }); 
+ </script>
 </html>
