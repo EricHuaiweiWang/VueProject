@@ -1,60 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP" src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
 </head>
+
 <body>
-<div id="app">
-{{content}}
-</div>
-    
+    <div id="app">
+        <span v-once>{{name}}</span>
+        {{index+1}}
+        {{name.split('').join('|')}}
+        {{ name | capitalize01 }}
+    </div>
+
 </body>
 <script>
-    var vm=new Vue({
-    el:'#app',
-    data:{
-        content:'hello eric'
-    },
-    beforeCreate:function(){
-        console.log('beforeCreate');
-    },
-    created:function(){
-        console.log('Created');
-    },
-    /* attached:function(){
-        console.log('attached');
-    }, */
-    beforeDestroy:function(){
-        console.log('beforedestory');
-    },
-    destroyed:function(){
-        console.log('destroyed');
-    },
-    beforeMount:function(){
-        console.log('beforeMounted');
-    },
-    mounted:function(){
-        console.log('Mounted');
-    },
-    beforeUpdate:function(){
-        console.log('beforeUpdate');
-    },
-    updated:function(){
-        console.log('updated');
-    },
-    activated:function(){
-        console.log('activated');
-    },
-    deactivated:function(){
-        console.log('deactivated');
-    },
-    ready:function(){
-        console.log('ready');
-        $.$destroy();
-    }
-    }); 
- </script>
+    Vue.filter('capitalize01', function (value) {
+        if (!value) return ''
+        value = value.toString()
+        return value.charAt(0).toUpperCase() + value.slice(1)
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            content: 'hello eric',
+            id: 1,
+            index: 0,
+            name: 'vue',
+            avatar: 'http://.....',
+            count: [1, 2, 3, , 4, 5],
+            names: ['vue1.0', 'vue2.0'],
+            items: [{
+                    name: 'vue1.0',
+                    version: '1.0'
+                },
+                {
+                    name: 'vue1.1',
+                    version: '1.0'
+                },
+            ]
+        },
+        filters: {
+            capitalize: function (value) {
+                if (!value) return ''
+                value = value.toString()
+                return value.charAt(0).toUpperCase() + value.slice(1)
+            }
+        },
+        beforeCreate: function () {
+            console.log('beforeCreate');
+        },
+        created: function () {
+            console.log('Created');
+        },
+        /* attached:function(){
+            console.log('attached');
+        }, */
+        beforeDestroy: function () {
+            console.log('beforedestory');
+        },
+        destroyed: function () {
+            console.log('destroyed');
+        },
+        beforeMount: function () {
+            console.log('beforeMounted');
+        },
+        mounted: function () {
+            console.log('Mounted');
+        },
+        beforeUpdate: function () {
+            console.log('beforeUpdate');
+        },
+        updated: function () {
+            console.log('updated');
+        },
+        activated: function () {
+            console.log('activated');
+        },
+        deactivated: function () {
+            console.log('deactivated');
+        },
+        ready: function () {
+            console.log('ready');
+            $.$destroy();
+        }
+    });
+</script>
+
 </html>

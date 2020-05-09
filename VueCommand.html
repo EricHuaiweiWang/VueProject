@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+</head>
+
+<body>
+    <form id="form" v-on:submit.prevent="onSubmit">
+        <button type="submit">submit</button>
+    </form>
+    <div id="example-1">
+        <button v-on:click="counter+=1" v-on:keyup.enter="submit">Add 1</button>
+        <p>The button above has been clicked {{counter}} times.</p>
+    </div>
+
+
+    <div id="example-2">
+        <button v-on:keyup.enter="submit" v-on:click="greet($event,'111')" >Greet</button>
+    </div>
+</body>
+<script>
+    var form = new Vue({
+        el: '#form',
+        methods: {
+            onSubmit: function () {
+                console.log('prevent this page reload!')
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el: '#example-1',
+        data: {
+            counter: 0
+        },
+        methods: {
+            submit: function () {
+                alert("example1");
+            }
+        }
+    });
+    var vm01 = new Vue({
+        el: '#example-2',
+        data: {
+            name: 'Vue.js'
+        },
+        methods: {
+            greet: function (event, msg) {
+                alert('Hello ' + this.name + '! ' + msg);
+                if (event) {
+                    alert(event.target.tagName)
+                }
+            },
+            submit: function () {
+                alert("form");
+            }
+        }
+    })
+</script>
+
+</html>

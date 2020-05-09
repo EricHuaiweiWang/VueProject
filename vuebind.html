@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="checked" v-bind:true-value="a" v-bind:false-value="b">
+        <div class="tab" v-bind:class="{'active':active,'unactive':!active}">11111111</div>
+        <div class="tab" v-bind:class="[classA,classB,{'active':active}]">222</div>
+        <div v-bind:style="alertStyle">33333</div>
+    </div>
+</body>
+<script>
+var vm=new Vue({
+    el:'#app',
+    data:{
+        alertStyle:{color:'red',fontSize:'20px'},
+        classA:'class-a',
+        classB:'class-b',
+        checked:'',
+        active:true,
+        a:'checked1',
+        b:'checked2'
+    }
+})
+</script>
+</html>

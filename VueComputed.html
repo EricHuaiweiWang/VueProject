@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{firstName}}</p>
+        <p>{{lastName}}</p>
+        <p>{{fullName}}</p>
+        <p>{{price}}</p>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            firstName: 'Gavin',
+            lastName: 'CLY',
+            cents: 100
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            },
+            price: {
+                set: function (newValue) {
+                    this.cents = newValue * 100;
+                },
+                get: function () {
+                    return (this.cents / 100).toFixed(2);
+                }
+            }
+        }
+    });
+</script>
+
+</html>

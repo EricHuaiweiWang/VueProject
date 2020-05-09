@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <ul>
+            <li v-for="(item,index) in items">
+                <h3>{{ index }} -- {{item.title}}</h3>
+                <p>{{item.description}}</p>
+            </li>
+        </ul> -->
+        <ul id="v-for-object" class="demo">
+            <li v-for="(value,name,index) in object">
+              {{index}}. {{name}} : {{value}}
+            </li>
+        </ul>
+
+        <!-- <ul id="example-2">
+            <li v-for="(item, index) in items">
+              {{ parentMessage }} - {{ index }} - {{ item.message }}
+            </li>
+          </ul> -->
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#v-for-object',
+        data:{
+            object:{
+                title:'How to do lists in Vue',
+                author:'Jane Doe',
+                publishedAt:'2016-04-10'
+            }
+        }
+    })
+
+var example2 = new Vue({
+  el: '#example-2',
+  data: {
+    parentMessage: 'Parent',
+    items: [
+      { message: 'Foo' },
+      { message: 'Bar' }
+    ]
+  }
+});
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            yes: 1,
+            items: [
+                {
+                    title: 'title-1',
+                    description: 'description-1'
+                },
+                {
+                    title: 'title-2',
+                    description: 'description-2'
+                },
+                {
+                    title: 'title-3',
+                    description: 'description-3'
+                },
+                {
+                    title: 'title-4',
+                    description: 'description-4'
+                }
+            ]
+        }
+    });
+</script>
+
+</html>

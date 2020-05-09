@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin="anonymous" integrity="sha384-+jvb+jCJ37FkNjPyYLI3KJzQeD8pPFXUra3B/QJFqQ3txYrUPIP1eOfxK4h3cKZP"
+        src="https://lib.baomitu.com/vue/2.6.11/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <label><input type="radio" value="male" v-model="gender">男</label>
+        <label><input type="radio" value="female" v-model="gender">女</label>
+        <p>{{gender}}</p>
+        <input type="checkbox"  v-model="checked" id="">
+        <span>checked :{{checked}}</span>
+        <lable><input type="checkbox"  id="" value="1" v-model=" multiChecked"></lable>
+        <lable><input type="checkbox"  id="" value="2" v-model=" multiChecked"></lable>
+        <lable><input type="checkbox"  id="" value="3" v-model=" multiChecked"></lable>
+        <p>Multichecked:{{multiChecked.join('|')}}</p>
+
+        <select name="" id="" v-model="selected">
+            <option selected>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <span>Selected: {{selected}}</span>
+
+        <select v-model="multiSelected" multiple>
+            <option selected>A</option>
+            <option >B</option>
+            <option >C</option>
+        </select>
+        <br>
+        <span>MultiSelected: {{multiSelected.join('|')}}</span>
+
+        <input v-model.trim="name">
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            name:'',
+            message: '',
+            gender: '',
+            checked: '',
+            multiChecked: [],
+            selected: '',
+            multiSelected: [],
+            a: 'checked',
+            b: 'checked'
+        }
+    });
+</script>
+
+</html>
